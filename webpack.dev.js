@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development', // this will trigger some webpack default stuffs for dev
-  entry: './index.js', // if not set, default path to './src/index.js'. Accepts an object with multiple key-value pairs, with key as your custom bundle filename(substituting the [name]), and value as the corresponding file path
+  entry: './src/index.js', // if not set, default path to './src/index.js'. Accepts an object with multiple key-value pairs, with key as your custom bundle filename(substituting the [name]), and value as the corresponding file path
   output: {
     filename: '[name].bundle.js', // [name] will take whatever the input filename is. defaults to 'main' if only a single entry value
     path: path.resolve(__dirname, 'dist'), // the folder containing you final dist/build files. Default to './dist'
@@ -12,7 +12,7 @@ module.exports = {
     historyApiFallback: true, // to make our SPA works after a full reload, so that it serves 'index.html' when 404 response
     stats: 'minimal', // default behaviour spit out way too much info. adjust to your need.
   },
-  devtool: 'cheap-module-eval-source-map', // a sourcemap type. map to original source with line number
+  devtool: 'cheap-module-source-map', // a sourcemap type. map to original source with line number cheap-module-eval-source-map
   plugins: [new HtmlWebpackPlugin()], // automatically creates a 'index.html' for us with our <link>, <style>, <script> tags inserted! Visit https://github.com/jantimon/html-webpack-plugin for more options
   module: {
     rules: [
